@@ -1,6 +1,7 @@
 #pragma once
 
 #include "xve_device.hpp"
+#include "xve_model.hpp"
 #include "xve_pipeline.hpp"
 #include "xve_swap_chain.hpp"
 #include "xve_window.hpp"
@@ -14,6 +15,8 @@ public:
   void run();
 
 private:
+  void loadModels();
+
   void createPipelineLayout();
   void createPipeline();
   void createCommandBuffers();
@@ -28,4 +31,6 @@ private:
   std::unique_ptr<XvePipeline> pipeline;
   vk::PipelineLayout pipelineLayout;
   std::vector<vk::CommandBuffer> commandBuffers;
+
+  std::unique_ptr<XveModel> model;
 };

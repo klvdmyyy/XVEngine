@@ -17,6 +17,11 @@ XveSwapChain::XveSwapChain(XveDevice &deviceRef, vk::Extent2D windowExtent)
 void XveSwapChain::createSwapChain() {
   vkb::SwapchainBuilder swapChainBuilder{device.getBDevice()};
   bSwapChain = swapChainBuilder.set_old_swapchain(nullptr).build().value();
+  auto bSwapChainImages = bSwapChain.get_images().value();
+  for (auto image : bSwapChainImages) {
+    swapChainImages.push_back(image);
+  }
+  log(LogLevel::Info, "{}", bSwapChain.get_images().value().size());
 }
 
 void XveSwapChain::createImageViews() {
@@ -113,7 +118,7 @@ vk::Result XveSwapChain::acquireNextImage(uint32_t *imageIndex) {
 
 vk::Result XveSwapChain::submitCommandBuffers(const vk::CommandBuffer *buffers,
                                               uint32_t *imageIndex) {
-  if (imagesInFlight[*imageIndex] != VK_NULL_HANDLE) {
+  if (imagesInFlight[*imageIndex] != nullptr) {
     device.getDevice().waitForFences(1, &imagesInFlight[*imageIndex], VK_TRUE,
                                      UINT64_MAX);
   }
@@ -135,6 +140,8 @@ vk::Result XveSwapChain::submitCommandBuffers(const vk::CommandBuffer *buffers,
   submitInfo.signalSemaphoreCount = 1;
   submitInfo.pSignalSemaphores = signalSemaphores;
 
+  device.getDevice().waitForFences(1, &inFlightFences[currentFrame], vk::True,
+                                   std::numeric_limits<uint64_t>::max());
   device.getDevice().resetFences(1, &inFlightFences[currentFrame]);
   device.getGraphicsQueue().submit(1, &submitInfo,
                                    inFlightFences[currentFrame]);

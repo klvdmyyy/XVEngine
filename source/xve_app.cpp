@@ -6,12 +6,22 @@
 #include <vulkan/vulkan_structs.hpp>
 
 XveApp::XveApp() {
+  loadModels();
   createPipelineLayout();
   createPipeline();
   createCommandBuffers();
 }
 
 XveApp::~XveApp() { device.getDevice().destroyPipelineLayout(pipelineLayout); }
+
+void XveApp::loadModels() {
+  std::vector<XveModel::Vertex> vertices = {
+      {{0.0f, -0.5f}},
+      {{0.5f, 0.5f}},
+      {{-0.5f, 0.5f}},
+  };
+  model = std::make_unique<XveModel>(device, vertices);
+}
 
 void XveApp::run() {
   bool quit = false;
@@ -25,6 +35,8 @@ void XveApp::run() {
 
     drawFrame();
   }
+
+  device.getDevice().waitIdle();
 }
 
 void XveApp::createPipelineLayout() {
@@ -86,7 +98,8 @@ void XveApp::createCommandBuffers() {
       cmd.beginRenderPass(renderPassInfo, vk::SubpassContents::eInline);
 
       pipeline->bind(cmd);
-      cmd.draw(3, 1, 0, 0);
+      model->bind(cmd);
+      model->draw(cmd);
 
       cmd.endRenderPass();
 

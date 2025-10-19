@@ -3,6 +3,7 @@
 #include "xve_window.hpp"
 #include <VkBootstrap.h>
 #include <vulkan/vulkan.hpp>
+#include <vulkan/vulkan_enums.hpp>
 #include <vulkan/vulkan_handles.hpp>
 
 class XveDevice {
@@ -38,4 +39,8 @@ public:
                                  vk::FormatFeatureFlags features);
 
   uint32_t findMemoryType(uint32_t bits, vk::MemoryPropertyFlags flags);
+
+  void createBuffer(vk::DeviceSize size, vk::BufferUsageFlags usage,
+                    vk::MemoryPropertyFlags properties, vk::Buffer &buffer,
+                    vk::DeviceMemory &bufferMemory);
 };

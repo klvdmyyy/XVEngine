@@ -5,6 +5,8 @@
 
 #include <SDL3/SDL_vulkan.h>
 #include <vulkan/vulkan_core.h>
+#include <vulkan/vulkan_enums.hpp>
+#include <vulkan/vulkan_structs.hpp>
 
 class VulkanValidation : public Logger {
 public:
@@ -128,4 +130,29 @@ uint32_t XveDevice::findMemoryType(uint32_t typeFilter,
   }
 
   throw std::runtime_error("Failed to find suitable memory type.");
+}
+
+void XveDevice::createBuffer(vk::DeviceSize size, vk::BufferUsageFlags usage,
+                             vk::MemoryPropertyFlags properties,
+                             vk::Buffer &buffer,
+                             vk::DeviceMemory &bufferMemory) {
+  auto bufferInfo = vk::BufferCreateInfo{
+      {},
+      size,
+      usage,
+      vk::SharingMode::eExclusive,
+  };
+
+  buffer = device.createBuffer(bufferInfo);
+
+  auto memRequirements = device.getBufferMemoryRequirements(buffer);
+
+  auto allocInfo = vk::MemoryAllocateInfo{
+      memRequirements.size,
+      findMemoryType(memRequirements.memoryTypeBits, properties),
+  };
+
+  bufferMemory = device.allocateMemory(allocInfo);
+
+  device.bindBufferMemory(buffer, bufferMemory, 0);
 }

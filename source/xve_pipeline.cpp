@@ -1,4 +1,5 @@
 #include "xve_pipeline.hpp"
+#include "xve_model.hpp"
 
 #include <fstream>
 
@@ -130,13 +131,16 @@ XvePipeline::XvePipeline(XveDevice &device_, const std::string &vertFilepath,
                                         fragShaderModule, "main"},
   };
 
+  auto bindingDescriptions = XveModel::Vertex::getBindingDescription();
+  auto attributeDescriptions = XveModel::Vertex::getAttributeDescription();
+
   auto vertexInputInfo = vk::PipelineVertexInputStateCreateInfo{
       vk::PipelineVertexInputStateCreateFlags(),
-      0,
-      nullptr,
-      0,
-      nullptr,
-      nullptr};
+      static_cast<uint32_t>(bindingDescriptions.size()),
+      bindingDescriptions.data(),
+      static_cast<uint32_t>(attributeDescriptions.size()),
+      attributeDescriptions.data(),
+  };
 
   auto createInfo =
       vk::GraphicsPipelineCreateInfo{{},

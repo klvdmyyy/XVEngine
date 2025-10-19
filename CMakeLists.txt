@@ -26,8 +26,9 @@ target_sources(game PRIVATE ${GAME_SOURCE_FILES})
 find_package(Vulkan REQUIRED)
 find_package(SDL3 REQUIRED)
 add_subdirectory(external/vk-bootstrap)
+add_subdirectory(external/glm)
 
-target_link_libraries(game PRIVATE SDL3::SDL3 Vulkan::Vulkan vk-bootstrap::vk-bootstrap)
+target_link_libraries(game PRIVATE SDL3::SDL3 Vulkan::Vulkan vk-bootstrap::vk-bootstrap glm::glm)
 
 configure_file(
   "${CMAKE_CURRENT_SOURCE_DIR}/source/config.h.in"
