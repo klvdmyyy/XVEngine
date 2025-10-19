@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/klvdmyyy/Desktop/Game/build",
+  "command": "/usr/bin/c++  -I/home/klvdmyyy/Desktop/Game/external/vk-bootstrap/src -std=gnu++20 -o CMakeFiles/game.dir/source/logger.cpp.o -c /home/klvdmyyy/Desktop/Game/source/logger.cpp",
+  "file": "/home/klvdmyyy/Desktop/Game/source/logger.cpp",
+  "output": "CMakeFiles/game.dir/source/logger.cpp.o"
+},
+{
+  "directory": "/home/klvdmyyy/Desktop/Game/build",
+  "command": "/usr/bin/c++  -I/home/klvdmyyy/Desktop/Game/external/vk-bootstrap/src -std=gnu++20 -o CMakeFiles/game.dir/source/main.cpp.o -c /home/klvdmyyy/Desktop/Game/source/main.cpp",
+  "file": "/home/klvdmyyy/Desktop/Game/source/main.cpp",
+  "output": "CMakeFiles/game.dir/source/main.cpp.o"
+},
+{
+  "directory": "/home/klvdmyyy/Desktop/Game/build",
+  "command": "/usr/bin/c++  -I/home/klvdmyyy/Desktop/Game/external/vk-bootstrap/src -std=gnu++20 -o CMakeFiles/game.dir/source/xve_app.cpp.o -c /home/klvdmyyy/Desktop/Game/source/xve_app.cpp",
+  "file": "/home/klvdmyyy/Desktop/Game/source/xve_app.cpp",
+  "output": "CMakeFiles/game.dir/source/xve_app.cpp.o"
+},
+{
+  "directory": "/home/klvdmyyy/Desktop/Game/build",
+  "command": "/usr/bin/c++  -I/home/klvdmyyy/Desktop/Game/external/vk-bootstrap/src -std=gnu++20 -o CMakeFiles/game.dir/source/xve_device.cpp.o -c /home/klvdmyyy/Desktop/Game/source/xve_device.cpp",
+  "file": "/home/klvdmyyy/Desktop/Game/source/xve_device.cpp",
+  "output": "CMakeFiles/game.dir/source/xve_device.cpp.o"
+},
+{
+  "directory": "/home/klvdmyyy/Desktop/Game/build",
+  "command": "/usr/bin/c++  -I/home/klvdmyyy/Desktop/Game/external/vk-bootstrap/src -std=gnu++20 -o CMakeFiles/game.dir/source/xve_pipeline.cpp.o -c /home/klvdmyyy/Desktop/Game/source/xve_pipeline.cpp",
+  "file": "/home/klvdmyyy/Desktop/Game/source/xve_pipeline.cpp",
+  "output": "CMakeFiles/game.dir/source/xve_pipeline.cpp.o"
+},
+{
+  "directory": "/home/klvdmyyy/Desktop/Game/build",
+  "command": "/usr/bin/c++  -I/home/klvdmyyy/Desktop/Game/external/vk-bootstrap/src -std=gnu++20 -o CMakeFiles/game.dir/source/xve_swap_chain.cpp.o -c /home/klvdmyyy/Desktop/Game/source/xve_swap_chain.cpp",
+  "file": "/home/klvdmyyy/Desktop/Game/source/xve_swap_chain.cpp",
+  "output": "CMakeFiles/game.dir/source/xve_swap_chain.cpp.o"
+},
+{
+  "directory": "/home/klvdmyyy/Desktop/Game/build",
+  "command": "/usr/bin/c++  -I/home/klvdmyyy/Desktop/Game/external/vk-bootstrap/src -std=gnu++20 -o CMakeFiles/game.dir/source/xve_window.cpp.o -c /home/klvdmyyy/Desktop/Game/source/xve_window.cpp",
+  "file": "/home/klvdmyyy/Desktop/Game/source/xve_window.cpp",
+  "output": "CMakeFiles/game.dir/source/xve_window.cpp.o"
+},
+{
+  "directory": "/home/klvdmyyy/Desktop/Game/build/external/vk-bootstrap",
+  "command": "/usr/bin/c++  -I/home/klvdmyyy/Desktop/Game/external/vk-bootstrap/src -std=gnu++20 -Wall -Wextra -Wconversion -Wsign-conversion -Wstrict-aliasing -o CMakeFiles/vk-bootstrap.dir/src/VkBootstrap.cpp.o -c /home/klvdmyyy/Desktop/Game/external/vk-bootstrap/src/VkBootstrap.cpp",
+  "file": "/home/klvdmyyy/Desktop/Game/external/vk-bootstrap/src/VkBootstrap.cpp",
+  "output": "external/vk-bootstrap/CMakeFiles/vk-bootstrap.dir/src/VkBootstrap.cpp.o"
+}
+]

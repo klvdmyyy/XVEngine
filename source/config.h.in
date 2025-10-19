@@ -1,0 +1,22 @@
+#pragma once
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define APP_NAME "@PROJECT_NAME@"
+#define APP_VMAJOR @PROJECT_VERSION_MAJOR@
+#define APP_VMINOR @PROJECT_VERSION_MINOR@
+#define APP_VPATCH @PROJECT_VERSION_PATCH@
+
+#define ENGINE_NAME "@ENGINE_NAME@"
+#define ENGINE_VMAJOR @PROJECT_VERSION_MAJOR@
+#define ENGINE_VMINOR @PROJECT_VERSION_MINOR@
+#define ENGINE_VPATCH @PROJECT_VERSION_PATCH@
+
+#define SIMPLE_SHADER_VERT "@CMAKE_CURRENT_BINARY_DIR@/simple_shader.vert.spv"
+#define SIMPLE_SHADER_FRAG "@CMAKE_CURRENT_BINARY_DIR@/simple_shader.frag.spv"
+
+#ifdef __cplusplus
+}
+#endif
